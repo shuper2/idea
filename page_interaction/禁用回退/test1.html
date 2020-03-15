@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>利用storage事件实时监视Web Storage中的数据</title>
+		<script language="javascript">
+			var count = 0;
+			window.onload = function() {
+				(function(window, location) {
+					history.replaceState(null, document.title, location.pathname+"#!/stealingyourhistory");
+					history.pushState(null, document.title, location.pathname);
+
+					window.addEventListener("popstate", function() {
+					  if(location.hash === "#!/stealingyourhistory") {
+							alert('回退已被禁用。');
+							history.replaceState(null, document.title, location.pathname);
+					  }
+					}, false);
+				}(window, location));
+				document.getElementById('counter').innerText = count;
+			}
+			
+			
+			function plusOne () {
+				count ++;
+				document.getElementById('counter').innerText = count;
+			}
+			
+    	</script>
+    </head>
+    <body>
+        <div id="counter">YES!YES!YES!</div>
+		<a href="#" onclick="plusOne();">click</a>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>利用storage事件实时监视Web Storage中的数据</title>
+		<script language="javascript">
+			history.pushState(null, null, document.URL);
+			window.addEventListener('popstate', function () {
+				history.pushState(null, null, document.URL);
+			});
+    	</script>
+    </head>
+    <body>
+        <div>YES!YES!YES!</div>
+    </body>
+</html>
